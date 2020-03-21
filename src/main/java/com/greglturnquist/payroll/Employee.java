@@ -34,15 +34,17 @@ public class Employee {
     private String lastName;
     private String description;
     private String jobTitle;
+    private String email;
 
     private Employee() {
     }
 
-    public Employee(String firstName, String lastName, String description, String jobTitle) {
+    public Employee(String firstName, String lastName, String description, String jobTitle, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.description = description;
         this.jobTitle = jobTitle;
+        this.email = email;
     }
 
     @Override
@@ -54,13 +56,14 @@ public class Employee {
                 Objects.equals(firstName, employee.firstName) &&
                 Objects.equals(lastName, employee.lastName) &&
                 Objects.equals(description, employee.description) &&
-                Objects.equals(jobTitle, employee.jobTitle);
+                Objects.equals(jobTitle, employee.jobTitle) &&
+                Objects.equals(email, employee.email);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, firstName, lastName, description, jobTitle);
+        return Objects.hash(id, firstName, lastName, description, jobTitle, email);
     }
 
     public Long getId() {
@@ -95,22 +98,30 @@ public class Employee {
         this.description = description;
     }
 
-    public void setJobTitle(String jobTitle){
-    	this.jobTitle=jobTitle;
-	}
+    public String getJobTitle() {
+        return jobTitle;
+    }
 
-	public String getJobTitle() {
-		return jobTitle;
-	}
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
 
-	@Override
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
     public String toString() {
         return "Employee{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", description='" + description + '\'' +
-				", jobTitle='" + jobTitle + '\'' +
+                ", jobTitle='" + jobTitle + '\'' +
                 '}';
     }
 }
